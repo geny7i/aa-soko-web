@@ -40,7 +40,5 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  serverMiddleware: {
-    '/api': '~/api'
-  }
+  serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
 }
