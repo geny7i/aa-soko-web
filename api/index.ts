@@ -1,0 +1,20 @@
+import express from 'express'
+import { Router } from 'express'
+
+const app = express();
+const router = Router()
+
+router.use('/hello', (req, res) => {
+    res.end('Hello kokain world!')
+})
+
+app.use(router)
+
+if (require.main === module) {
+  const port = 3001
+  app.listen(port, () => {
+    console.log(`API server listening on port ${port}`)
+  })
+}
+
+export default app
