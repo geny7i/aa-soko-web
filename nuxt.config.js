@@ -1,3 +1,5 @@
+const isServerlessEnvironment = process.env.ON_VERCEL=="true"
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -40,5 +42,5 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  serverMiddleware: [{ path: "/api", handler: "~/api/index.ts" }],
+  serverMiddleware: isServerlessEnvironment ? [] : [{ path: "/api", handler: "~/api/index.ts" }],
 }
